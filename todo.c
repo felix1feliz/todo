@@ -109,15 +109,15 @@ int main(int argc, char **argv) {
 	}
 
 	if(strcmp(argv[1], "add") == 0) {
-		if(strlen(argv[2]) > 255) {
-			printf("Task 256 character size maximum exeded\n");
+		if(argc != 3) {
+			printf("Expected exactly one task\n");
 
 			close(tasks_fd);
 			return 1;
 		}
 
-		if(argc != 3) {
-			printf("Expected exactly one task\n");
+		if(strlen(argv[2]) > 255) {
+			printf("Task 256 character size maximum exeded\n");
 
 			close(tasks_fd);
 			return 1;
